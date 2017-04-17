@@ -1,7 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <title>Code coverage report for node-npmtest-gulp-zip/gulp-zip/index.js</title>
+<html lang="en"><head>
+    <title>Code coverage report for node-npmtest-gulp-zip/node_modules/gulp-zip/index.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -194,7 +192,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-gulp-zip">npmtest-gulp-zip (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-gulp-zip/gulp-zip/index.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-gulp-zip/node_modules/gulp-zip/index.js</span></h1>
     <h2>
         
         Statements: <span class="metric">18.18% <small>(6 / 33)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -210,11 +208,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-gulp-zip/gulp-zip/</a> &#187; index.js</div>
+    <div class="path"><a href="../../../index.html">All files</a> » <a href="index.html">node-npmtest-gulp-zip/node_modules/gulp-zip/</a> » index.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tr><td class="line-count">1
+<tbody><tr><td class="line-count">1
 2
 3
 4
@@ -372,78 +370,79 @@ const Yazl = require('yazl');
 const getStream = require('get-stream');
 &nbsp;
 module.exports = (filename, opts) =&gt; {
-<span class="cstat-no" title="statement not covered" >	if (!filename) {</span>
-<span class="cstat-no" title="statement not covered" >		throw new gutil.PluginError('gulp-zip', '`filename` required');</span>
+<span class="cstat-no" title="statement not covered">	if (!filename) {</span>
+<span class="cstat-no" title="statement not covered">		throw new gutil.PluginError('gulp-zip', '`filename` required');</span>
 	}
 &nbsp;
-<span class="cstat-no" title="statement not covered" >	opts = Object.assign({</span>
+<span class="cstat-no" title="statement not covered">	opts = Object.assign({</span>
 		compress: true
 	}, opts);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >	let firstFile;</span>
-<span class="cstat-no" title="statement not covered" >	const zip = new Yazl.ZipFile();</span>
+<span class="cstat-no" title="statement not covered">	let firstFile;</span>
+<span class="cstat-no" title="statement not covered">	const zip = new Yazl.ZipFile();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >	return through.obj((file, enc, cb) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >		if (!firstFile) {</span>
-<span class="cstat-no" title="statement not covered" >			firstFile = file;</span>
+<span class="cstat-no" title="statement not covered">	return through.obj((file, enc, cb) =&gt; {</span>
+<span class="cstat-no" title="statement not covered">		if (!firstFile) {</span>
+<span class="cstat-no" title="statement not covered">			firstFile = file;</span>
 		}
 &nbsp;
 		// Because Windows...
-<span class="cstat-no" title="statement not covered" >		const pathname = file.relative.replace(/\\/g, '/');</span>
+<span class="cstat-no" title="statement not covered">		const pathname = file.relative.replace(/\\/g, '/');</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >		if (!pathname) {</span>
-<span class="cstat-no" title="statement not covered" >			cb();</span>
-<span class="cstat-no" title="statement not covered" >			return;</span>
+<span class="cstat-no" title="statement not covered">		if (!pathname) {</span>
+<span class="cstat-no" title="statement not covered">			cb();</span>
+<span class="cstat-no" title="statement not covered">			return;</span>
 		}
 &nbsp;
-<span class="cstat-no" title="statement not covered" >		if (file.isNull() &amp;&amp; file.stat &amp;&amp; file.stat.isDirectory &amp;&amp; file.stat.isDirectory()) {</span>
-<span class="cstat-no" title="statement not covered" >			zip.addEmptyDirectory(pathname, {</span>
+<span class="cstat-no" title="statement not covered">		if (file.isNull() &amp;&amp; file.stat &amp;&amp; file.stat.isDirectory &amp;&amp; file.stat.isDirectory()) {</span>
+<span class="cstat-no" title="statement not covered">			zip.addEmptyDirectory(pathname, {</span>
 				mtime: file.stat.mtime || new Date(),
 				mode: file.stat.mode
 			});
 		} else {
-<span class="cstat-no" title="statement not covered" >			const stat = {</span>
+<span class="cstat-no" title="statement not covered">			const stat = {</span>
 				compress: opts.compress,
 				mtime: file.stat ? file.stat.mtime : new Date(),
 				mode: file.stat ? file.stat.mode : null
 			};
 &nbsp;
-<span class="cstat-no" title="statement not covered" >			if (file.isStream()) {</span>
-<span class="cstat-no" title="statement not covered" >				zip.addReadStream(file.contents, pathname, stat);</span>
+<span class="cstat-no" title="statement not covered">			if (file.isStream()) {</span>
+<span class="cstat-no" title="statement not covered">				zip.addReadStream(file.contents, pathname, stat);</span>
 			}
 &nbsp;
-<span class="cstat-no" title="statement not covered" >			if (file.isBuffer()) {</span>
-<span class="cstat-no" title="statement not covered" >				zip.addBuffer(file.contents, pathname, stat);</span>
+<span class="cstat-no" title="statement not covered">			if (file.isBuffer()) {</span>
+<span class="cstat-no" title="statement not covered">				zip.addBuffer(file.contents, pathname, stat);</span>
 			}
 		}
 &nbsp;
-<span class="cstat-no" title="statement not covered" >		cb();</span>
-	}, <span class="fstat-no" title="function not covered" >function (cb) {</span>
-<span class="cstat-no" title="statement not covered" >		if (!firstFile) {</span>
-<span class="cstat-no" title="statement not covered" >			cb();</span>
-<span class="cstat-no" title="statement not covered" >			return;</span>
+<span class="cstat-no" title="statement not covered">		cb();</span>
+	}, <span class="fstat-no" title="function not covered">function (cb) {</span>
+<span class="cstat-no" title="statement not covered">		if (!firstFile) {</span>
+<span class="cstat-no" title="statement not covered">			cb();</span>
+<span class="cstat-no" title="statement not covered">			return;</span>
 		}
 &nbsp;
-<span class="cstat-no" title="statement not covered" >		getStream.buffer(zip.outputStream).then(data =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >			this.push(new gutil.File({</span>
+<span class="cstat-no" title="statement not covered">		getStream.buffer(zip.outputStream).then(data =&gt; {</span>
+<span class="cstat-no" title="statement not covered">			this.push(new gutil.File({</span>
 				cwd: firstFile.cwd,
 				base: firstFile.base,
 				path: path.join(firstFile.base, filename),
 				contents: data
 			}));
 &nbsp;
-<span class="cstat-no" title="statement not covered" >			cb(); </span>// eslint-disable-line promise/no-callback-in-promise
+<span class="cstat-no" title="statement not covered">			cb(); </span>// eslint-disable-line promise/no-callback-in-promise
 		});
 &nbsp;
-<span class="cstat-no" title="statement not covered" >		zip.end();</span>
+<span class="cstat-no" title="statement not covered">		zip.end();</span>
 	});
 };
 &nbsp;
 &nbsp;</pre></td></tr>
-</table></pre>
+</tbody></table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 10:53:59 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Mon Apr 17 2017 10:56:13 GMT+0000 (UTC)</div>
 </div>
-</body>
-</html>
+
+
+</body></html>
