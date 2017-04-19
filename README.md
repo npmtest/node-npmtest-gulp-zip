@@ -1,4 +1,7 @@
-# test coverage for  [gulp-zip (v4.0.0)](https://github.com/sindresorhus/gulp-zip#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-gulp-zip.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-gulp-zip) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-gulp-zip.svg)](https://travis-ci.org/npmtest/node-npmtest-gulp-zip)
+# npmtest-gulp-zip
+
+#### test coverage for  [gulp-zip (v4.0.0)](https://github.com/sindresorhus/gulp-zip#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-gulp-zip.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-gulp-zip) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-gulp-zip.svg)](https://travis-ci.org/npmtest/node-npmtest-gulp-zip)
+
 #### ZIP compress files
 
 [![NPM](https://nodei.co/npm/gulp-zip.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/gulp-zip)
